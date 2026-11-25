@@ -31,4 +31,8 @@ pipeline {
             echo 'BUILD FAILED!'
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> bfbfc5a (final)

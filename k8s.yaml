@@ -9,7 +9,7 @@ spec:
     spec:
       containers:
       - name: java-container
-        image: javaapp:latest
+        image: myjava:latest
         imagePullPolicy: Never
 
       restartPolicy: Never
