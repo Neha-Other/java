@@ -1,14 +1,17 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'MAVEN'
-    }
-
     stages {
+
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
         stage('Build') {
             steps {
-                bat 'mvn clean package'
+                bat 'mvn -f pom.xml clean package'
             }
         }
 
@@ -16,6 +19,16 @@ pipeline {
             steps {
                 bat 'java -cp target/JavaProject-1.0.jar com.example.App'
             }
+        }
+    }
+
+    post {
+        success {
+            echo 'BUILD SUCCESSFUL!'
+        }
+
+        failure {
+            echo 'BUILD FAILED!'
         }
     }
 }
